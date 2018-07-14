@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import { Icon, Drawings } from './components'
+import { Icon, Drawings, Draw } from './components'
+import { Noise } from './services'
 import './App.css'
 
 class App extends Component {
@@ -16,10 +17,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div
+        className="App"
+        style={{
+          backgroundImage: Noise({
+            opacity: 0.1,
+            bright: 512,
+          })
+        }}
+      >
         <h1 className="App-title">墙</h1>
 
         <Icon type="draw" className="App-button-draw"/>
+
+        <Draw />
 
         <Drawings drawings={this.state.drawings} />
         
