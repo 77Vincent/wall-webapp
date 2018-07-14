@@ -1,4 +1,5 @@
 import React from 'react'
+import uuidv4 from 'uuid/v4'
 import Draggable from 'react-draggable'
 import PropTypes from 'prop-types'
 
@@ -13,11 +14,17 @@ const Drawings = (props) => {
       {
         props.drawings.map(each => (
           <Draggable 
-            defaultPosition={{x: 100, y: 200}}
+            key={uuidv4()}
+            defaultPosition={{x: each.positionX, y: each.positionY}}
           >
             <div
+              style={{
+                color: each.color,
+                fontSize: each.fontSize,
+                fontWeight: each.fontWeight,
+                fontStyle: each.isItalic,
+              }}
               className="App-drawing"
-              style={{}}
             >
               {each.content}
             </div>
