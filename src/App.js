@@ -4,6 +4,11 @@ import { Icon, Drawings, Draw } from './components'
 import { Noise } from './services'
 import './App.css'
 
+const backgroundImage = Noise({
+  opacity: 0.1,
+  bright: 512,
+})
+
 class App extends Component {
   async componentDidMount() {
     const res = await fetch('/api/posts')
@@ -12,27 +17,39 @@ class App extends Component {
   }
 
   state = {
-    drawings: []
+    drawingX: 0,
+    drawingY: 0,
+    drawings: [],
+    isDrawing: false,
   }
 
   render() {
     return (
       <div
         className="App"
-        style={{
-          backgroundImage: Noise({
-            opacity: 0.1,
-            bright: 512,
-          })
+        onClick={(e) => {
+          if (!document.getElementById('App-draw').contains(e.target)) {
+            this.setState({
+              drawingX: e.pageX,
+              drawingY: e.pageY,
+              isDrawing: true
+            })
+          }
         }}
+        style={{ backgroundImage }}
       >
         <h1 className="App-title">墙</h1>
 
-        <Icon type="draw" className="App-button-draw"/>
+        <Draw
+          id="App-draw"
+          isDrawing={this.state.isDrawing}
+          positionX={this.state.drawingX}
+          positionY={this.state.drawingY}
+        />
 
-        <Draw />
-
-        <Drawings drawings={this.state.drawings} />
+        <Drawings
+          drawings={this.state.drawings}
+        />
         
         <Icon type="question" className="App-button-question"/>
       </div>

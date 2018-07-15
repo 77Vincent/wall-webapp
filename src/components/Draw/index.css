@@ -1,16 +1,20 @@
-.App-Draw {
-}
-
-.App-Draw-wrapper {
+.App-draw {
   position: absolute;
-  left: 50%;
-  top: 40%;
-  margin-left: -150px;
-  margin-top: -150px;
-  width: 300px;
-  height: 300px;
   border-radius: 5px;
   z-index: 1;
   background-color: #fff;
-  box-shadow: 0 0 25px 0px #999;
+  padding: 5px;
+  box-shadow: 0 0 30px 0px #999;
+}
+
+.App-draw-tools {
+
+}
+
+.App-draw-textarea {
+  border: none;
+  outline: none;
+  font-size: 20px;
+  max-width: 200px;
+  max-height: 100px;
 }

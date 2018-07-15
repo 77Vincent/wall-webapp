@@ -10,6 +10,7 @@ const Drawings = (props) => {
     <div 
       style={props.style}
       className={`App-Drawings ${props.className}`}
+      onClick={props.onClick}
     >
       {
         props.drawings.map(each => (
@@ -39,12 +40,14 @@ Drawings.propTypes = {
   drawings: PropTypes.array,
   className: PropTypes.string,
   style: PropTypes.object,
+  onClick: PropTypes.func,
 }
 
 Drawings.defaultProps = {
   drawings: [],
   className: '',
-  style: {}
+  style: {},
+  onClick: () => {},
 }
 
 export default Drawings

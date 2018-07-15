@@ -17,6 +17,7 @@ const Icon = (props) => {
       className={`App-Icon ${props.className}`}
       src={types[props.type]}
       alt="question"
+      onClick={props.onClick}
     />
   )
 }
@@ -25,11 +26,13 @@ Icon.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
+  onClick: PropTypes.func,
 }
 
 Icon.defaultProps = {
   className: '',
-  style: {}
+  style: {},
+  onClick: () => {},
 }
 
 export default Icon
