@@ -6,6 +6,10 @@ img {
   width: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 .App-button-draw {
   max-width: 35px;
   width: 7vw;

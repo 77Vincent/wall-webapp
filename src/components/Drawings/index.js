@@ -16,6 +16,7 @@ const Drawings = (props) => {
         props.drawings.map(each => (
           <Draggable 
             key={uuidv4()}
+            onStart={() => false}
             defaultPosition={{x: each.positionX, y: each.positionY}}
           >
             <div
