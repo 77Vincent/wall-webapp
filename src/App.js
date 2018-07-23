@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Draggable from 'react-draggable'
 
 import { Icon, Drawings, Draw } from './components'
 import { Noise } from './services'
@@ -25,8 +24,8 @@ class App extends Component {
   }
 
   stateSetter = {
-    getDrawings: async (wallId = 1) => {
-      const res = await fetch(`/api/posts?wallId=${wallId}`)
+    getDrawings: async (wallId) => {
+      const res = await fetch(`/api/posts?wallId=${wallId ? wallId : ''}`)
       const drawings = await res.json()
       this.setState({ drawings })
     },
@@ -43,21 +42,6 @@ class App extends Component {
     isDrawing: (boolean) => this.setState({ isDrawing: boolean }) 
   }
 
-  toggleDrawBox = (e) => {
-    const textarea = document.getElementById('App-draw-textarea')
-    const tools = document.getElementById('App-draw-tools')
-
-    if (!this.state.isDrawing) {
-      this.setState({
-        isDrawing: true,
-        drawingX: e.pageX,
-        drawingY: e.pageY,
-      })
-    } else if (e.target !== textarea && e.target !== tools) {
-      this.setState({ isDrawing: false })
-    }
-  }
-
   render() {
     return (
       <div
@@ -65,14 +49,7 @@ class App extends Component {
         onClick={this.toggleDrawBox}
         style={{ backgroundImage }}
       >
-        <h1 className="App-title">墙</h1>
-
-        <Draw
-          stateSetter={this.stateSetter}
-          isDrawing={this.state.isDrawing}
-          drawingX={this.state.drawingX}
-          drawingY={this.state.drawingY}
-        />
+        <h1 className="App-title">Great Free Wall</h1>
 
         <Drawings
           drawings={this.state.drawings}

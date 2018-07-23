@@ -1,12 +1,4 @@
 .App-draw {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.App-draw-tools {
   position: fixed;
   bottom: 10px;
   left: 50%;

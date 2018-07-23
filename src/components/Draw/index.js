@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Draggable from 'react-draggable'
+import * as THREE from 'three'
 
 import './index.css'
 
@@ -30,6 +30,14 @@ class Draw extends Component {
     stateSetter: {},
   }
 
+  componentDidMount() {
+    const scene = new THREE.Scene()
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
+    const renderer = new THREE.WebGLRenderer()
+    renderer.setSize( window.innerWidth, window.innerHeight )
+    this.canvas = renderer.domElement
+  }
+
   render() {
     const style = Object.assign({
       display: this.props.isDrawing ? 'block' : 'none',
@@ -40,22 +48,16 @@ class Draw extends Component {
         style={style}
         className={`App-draw ${this.props.className}`}
       >
-        <div style={{
-          position: 'absolute',
-          top: this.props.drawingY,
-          left: this.props.drawingX,
-        }}>
-          <textarea
-            id="App-draw-textarea"
-            className="App-draw-textarea"
-            autoFocus
-            placeholder="写想说的话"
-            maxLength={55}
-            onChange={(e) => {
-              console.log(e)
-            }}
-          />
-        </div>
+        <textarea
+          id="App-draw-textarea"
+          className="App-draw-textarea"
+          autoFocus
+          placeholder="写想说的话"
+          maxLength={55}
+          onChange={(e) => {
+            console.log(e)
+          }}
+        />
 
         <div
           id="App-draw-tools"

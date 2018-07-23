@@ -1,2 +1,11 @@
-.App-Drawings {
+.App-drawings {
+  height: 100vh;
+  position: relative;
+  transition: transform 0.2s linear;
+}
+
+.App-drawing {
+  position: absolute;
+  max-width: 300px;
+  opacity: 0.9;
 }
