@@ -63,12 +63,13 @@ class Post extends Component {
               this.props.stateSetter.isPosting(false)
               const { textValue, textColor } = this.state
 
-              await Request.createPost({
+              const res = await Request.createPost({
                 content: textValue,
                 color: textColor,
               })
-              // const postings = await Request.getPost()
-              // this.setState({ postings })
+
+              const posts = await Request.getPost()
+              this.props.stateSetter.posts(posts)
             }}
           >
             写好了

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Postings, Header, Post } from './components'
+import { Posts, Header, Post } from './components'
 import { Noise, Request } from './services'
 import './App.css'
 
@@ -11,17 +11,18 @@ const backgroundImage = Noise({
 
 class App extends Component {
   async componentDidMount() {
-    const postings = await Request.getPost()
-    this.setState({ postings })
+    const posts = await Request.getPost()
+    this.setState({ posts })
   }
 
   state = {
-    postings: [],
+    posts: [],
     isPosting: false,
   }
 
   stateSetter = {
-    isPosting: (boolean) => this.setState({ isPosting: boolean }) 
+    posts: (payload = []) => this.setState({ posts: payload }),
+    isPosting: (boolean = true) => this.setState({ isPosting: boolean }),
   }
 
   render() {
@@ -39,8 +40,8 @@ class App extends Component {
           isPosting={this.state.isPosting}
         />
 
-        <Postings
-          postings={this.state.postings}
+        <Posts
+          posts={this.state.posts}
         />
         
       </div>

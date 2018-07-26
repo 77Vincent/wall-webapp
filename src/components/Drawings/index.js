@@ -4,24 +4,24 @@ import PropTypes from 'prop-types'
 
 import './index.css'
 
-class Postings extends Component {
+class Posts extends Component {
   static propTypes = {
-    postings: PropTypes.array,
+    posts: PropTypes.array,
     className: PropTypes.string,
   }
 
   static defaultProps = {
-    postings: [],
+    posts: [],
     className: '',
   }
 
   render() {
     return (
       <div 
-        className={`App-postings ${this.props.className}`}
+        className={`App-posts ${this.props.className}`}
       >
         {
-          this.props.postings.map(each => {
+          this.props.posts.map(each => {
             return (
               <section
                 key={uuidv4()}
@@ -42,4 +42,4 @@ class Postings extends Component {
   }
 }
 
-export default Postings
+export default Posts
