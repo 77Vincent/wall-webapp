@@ -20,7 +20,8 @@ header > section {
   top: 12px;
 }
 
-header .App-header-btn {
-  width: 25px;
-  margin-left: 10px;
+.App-header-btn {
+  height: 24px;
+  width: auto;
+  margin-left: 15px;
 }

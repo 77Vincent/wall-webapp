@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import { Icon } from '../../components'
 import { Request } from '../../services'
 import './index.css'
 
@@ -39,9 +40,10 @@ class Post extends Component {
     return (
       <div
         style={style}
-        className={`App-draw ${this.props.className}`}
+        className={`App-post ${this.props.className}`}
       >
         <textarea
+          rows="3"
           autoFocus
           placeholder=""
           maxLength={55}
@@ -50,15 +52,18 @@ class Post extends Component {
           }}
         />
 
-        <div className="App-draw-confirmation">
-          <button
+        <div className="App-post-confirmation">
+          <Icon
+            type="cancel"
             onClick={() => {
               this.props.stateSetter.isPosting(false)
             }}
           >
             不写了
-          </button>
-          <button
+          </Icon>
+
+          <Icon
+            type="confirm"
             onClick={async () => {
               this.props.stateSetter.isPosting(false)
               const { textValue, textColor } = this.state
@@ -73,10 +78,10 @@ class Post extends Component {
             }}
           >
             写好了
-          </button>
+          </Icon>
         </div>
 
-        <div className="App-draw-tools">
+        <div className="App-post-tools">
             <div className="App-color-picker">
               {
                 this.colors.map(each => {

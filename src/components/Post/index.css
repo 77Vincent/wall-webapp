@@ -1,4 +1,4 @@
-.App-draw {
+.App-post {
   position: fixed;
   bottom: 10px;
   left: 50%;
@@ -6,20 +6,18 @@
   width: 500px;
 }
 
-.App-draw textarea {
+.App-post textarea {
   background-color: #fff;
   padding: 5px;
   border-radius: 5px;
-  box-shadow: 0 0 30px 0px #999;
-  border: none;
+  border: 1px solid #ddd;
   outline: none;
-  font-size: 20px;
-  max-width: 200px;
-  max-height: 100px;
+  font-size: 14px;
+  max-width: 300px;
   border-bottom: 1px solid #ccc;
 }
 
-.App-draw-confirmation {
+.App-post-confirmation {
   
 }
 

@@ -11,13 +11,21 @@ const Header = (props) => {
 
       <section>
         <Icon
-          type="draw"
+          type="add"
           className="App-header-btn"
-          onClick={(e) => {
+          onClick={() => {
             props.stateSetter.isPosting(true)
           }}
         />
-        <Icon type="question" className="App-header-btn"/>
+
+        <Icon
+          type="refresh"
+          className="App-header-btn"
+          onClick={(e) => {
+          }}
+        />
+
+        <Icon type="info" className="App-header-btn"/>
       </section>
     </header>
   )

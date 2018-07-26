@@ -1,5 +1,7 @@
 .App-Icon {
   cursor: pointer;
+  max-width: 30px;
+  vertical-align: middle;
 }
 
 .App-Icon:hover {

@@ -1,13 +1,13 @@
 .App-posts {
   position: relative;
   padding: 18px;
-  -webkit-column-count: 7;
+  -webkit-column-count: 9;
   -webkit-column-gap: 10px;
   -webkit-column-fill: auto;
-  -moz-column-count: 7;
+  -moz-column-count: 9;
   -moz-column-gap: 10px;
   -moz-column-fill: auto;
-  column-count: 7;
+  column-count: 9;
   column-gap: 10px;
   column-fill: auto;
 }
@@ -22,4 +22,23 @@
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
+}
+
+@media (max-width: 1600px) {
+  .App-posts {
+    -webkit-column-count: 7;
+    -moz-column-count: 7;
+    column-count: 7;
+  }
+}
+
+@media (max-width: 1200px) {
+  .App-posts {
+    -webkit-column-count: 5;
+    -webkit-column-gap: 7px;
+    -moz-column-count: 5;
+    -moz-column-gap: 7px;
+    column-count: 5;
+    column-gap: 7px;
+  }
 }
