@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { Drawings, Header } from './components'
-import { Noise } from './services'
+import { Drawings, Header, Draw } from './components'
+import { Noise, Request } from './services'
 import './App.css'
 
 const backgroundImage = Noise({
@@ -11,34 +11,16 @@ const backgroundImage = Noise({
 
 class App extends Component {
   async componentDidMount() {
-    await this.stateSetter.getDrawings(this.state.currentWallId)
+    const drawings = await Request.getPost()
+    this.setState({ drawings })
   }
 
   state = {
-    currentWallId: 1,
-    clickTimes: 0,
-    drawingX: 0,
-    drawingY: 0,
     drawings: [],
     isDrawing: false,
   }
 
   stateSetter = {
-    getDrawings: async (wallId) => {
-      const res = await fetch(`/api/posts?wallId=${wallId ? wallId : ''}`)
-      const drawings = await res.json()
-      this.setState({ drawings })
-    },
-    updateDrawings: async (drawing = {}) => {
-      await fetch('/api/posts', {
-        method: 'PUT',
-        headers:{
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(drawing)
-      })
-      await this.stateSetter.getDrawings(this.state.currentWallId)
-    },
     isDrawing: (boolean) => this.setState({ isDrawing: boolean }) 
   }
 
@@ -46,10 +28,16 @@ class App extends Component {
     return (
       <div
         className="App"
-        onClick={this.toggleDrawBox}
         style={{ backgroundImage }}
       >
-        <Header />
+        <Header
+          stateSetter={this.stateSetter}
+        />
+
+        <Draw
+          stateSetter={this.stateSetter}
+          isDrawing={this.state.isDrawing}
+        />
 
         <Drawings
           drawings={this.state.drawings}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import * as THREE from 'three'
 
+import { Request } from '../../services'
 import './index.css'
 
 class Draw extends Component {
@@ -17,25 +17,18 @@ class Draw extends Component {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    isDrawing: PropTypes.bool,
-    drawingX: PropTypes.number.isRequired,
-    drawingY: PropTypes.number.isRequired,
     stateSetter: PropTypes.object,
   }
 
   static defaultProps = {
     className: '',
     style: {},
-    isDrawing: false,
     stateSetter: {},
   }
 
-  componentDidMount() {
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
-    const renderer = new THREE.WebGLRenderer()
-    renderer.setSize( window.innerWidth, window.innerHeight )
-    this.canvas = renderer.domElement
+  state = {
+    textValue: '',
+    textColor: '',
   }
 
   render() {
@@ -49,20 +42,15 @@ class Draw extends Component {
         className={`App-draw ${this.props.className}`}
       >
         <textarea
-          id="App-draw-textarea"
-          className="App-draw-textarea"
           autoFocus
-          placeholder="写想说的话"
+          placeholder=""
           maxLength={55}
           onChange={(e) => {
-            console.log(e)
+            this.setState({ textValue: e.target.value })
           }}
         />
 
-        <div
-          id="App-draw-tools"
-          className="App-draw-tools"
-        >
+        <div className="App-draw-confirmation">
           <button
             onClick={() => {
               this.props.stateSetter.isDrawing(false)
@@ -71,13 +59,48 @@ class Draw extends Component {
             不写了
           </button>
           <button
-            onClick={() => {
-              this.props.stateSetter.updateDrawings()
+            onClick={async () => {
               this.props.stateSetter.isDrawing(false)
+              const { textValue, textColor } = this.state
+
+              await Request.updatePost({
+                content: textValue,
+                color: textColor,
+              })
             }}
           >
             写好了
           </button>
+        </div>
+
+        <div className="App-draw-tools">
+            <div className="App-color-picker">
+              {
+                this.colors.map(each => {
+                  return (
+                    <div
+                      className="App-color-picker-btn"
+                      onClick={() => {
+                        this.setState({ textColor: each })
+                      }}
+                      style={{ backgroundColor: each }}
+                    ></div>
+                  )
+                })
+              }
+            </div>
+
+            <div className="App-size-picker">
+            </div>
+
+            <div className="App-weight-picker">
+            </div>
+
+            <div className="App-opacity-picker">
+            </div>
+
+            <div className="App-style-picker">
+            </div>
         </div>
       </div>
     )
