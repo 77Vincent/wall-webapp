@@ -11,8 +11,14 @@ class Post extends Component {
   }
 
   colors = [
-    'crimson',
-    'darkslateblue',
+    '#E9967A',
+    '#B22222',
+    '#C71585',
+    '#9370DB',
+    '#4682B4',
+    '#1E90FF',
+    '#20B2AA',
+    '#8FBC8B',
   ] 
 
   static propTypes = {
@@ -34,7 +40,8 @@ class Post extends Component {
 
   render() {
     const style = Object.assign({
-      display: this.props.isPosting ? 'block' : 'none',
+      opacity: this.props.isPosting ? '1' : '0',
+      zIndex: this.props.isPosting ? '1' : '-1',
     }, this.props.style)
 
     return (
@@ -42,44 +49,43 @@ class Post extends Component {
         style={style}
         className={`App-post ${this.props.className}`}
       >
-        <textarea
-          rows="3"
-          autoFocus
-          placeholder=""
-          maxLength={55}
-          onChange={(e) => {
-            this.setState({ textValue: e.target.value })
-          }}
-        />
-
-        <div className="App-post-confirmation">
-          <Icon
-            type="cancel"
-            onClick={() => {
-              this.props.stateSetter.isPosting(false)
+        <section>
+          <textarea
+            rows="3"
+            autoFocus
+            placeholder=""
+            maxLength={55}
+            onChange={(e) => {
+              this.setState({ textValue: e.target.value })
             }}
-          >
-            不写了
-          </Icon>
+          />
 
-          <Icon
-            type="confirm"
-            onClick={async () => {
-              this.props.stateSetter.isPosting(false)
-              const { textValue, textColor } = this.state
+          <div className="App-post-confirmation">
+            <Icon
+              type="confirm"
+              isDisabled={!this.state.textValue.length}
+              onClick={async () => {
+                this.props.stateSetter.isPosting(false)
+                const { textValue, textColor } = this.state
 
-              const res = await Request.createPost({
-                content: textValue,
-                color: textColor,
-              })
+                const res = await Request.createPost({
+                  content: textValue,
+                  color: textColor,
+                })
 
-              const posts = await Request.getPost()
-              this.props.stateSetter.posts(posts)
-            }}
-          >
-            写好了
-          </Icon>
-        </div>
+                const posts = await Request.getPost()
+                this.props.stateSetter.posts(posts)
+              }}
+            />
+
+            <Icon
+              type="cancel"
+              onClick={() => {
+                this.props.stateSetter.isPosting(false)
+              }}
+            />
+          </div>
+        </section>
 
         <div className="App-post-tools">
             <div className="App-color-picker">
@@ -87,8 +93,9 @@ class Post extends Component {
                 this.colors.map(each => {
                   return (
                     <div
-                      className="App-color-picker-btn"
-                      onClick={() => {
+                      key={each}
+                      className={`App-color-picker-btn ${this.state.textColor === each ? 'active' : ''}`}
+                      onClick={(e) => {
                         this.setState({ textColor: each })
                       }}
                       style={{ backgroundColor: each }}

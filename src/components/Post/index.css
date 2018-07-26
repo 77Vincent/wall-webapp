@@ -1,32 +1,66 @@
 .App-post {
   position: fixed;
-  bottom: 10px;
+  bottom: 30px;
   left: 50%;
-  margin-left: -250px;
-  width: 500px;
+  margin-left: -150px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 #aaa;
+  padding: 10px;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.App-post section {
+  margin-bottom: 10px;
+}
+
+.App-post .App-icon {
+  margin-bottom: 10px;
+  width: 27px;
+  height: 27px;
 }
 
 .App-post textarea {
   background-color: #fff;
   padding: 5px;
-  border-radius: 5px;
   border: 1px solid #ddd;
+  letter-spacing: 1px;
   outline: none;
   font-size: 14px;
-  max-width: 300px;
+  width: 240px;
   border-bottom: 1px solid #ccc;
 }
 
 .App-post-confirmation {
-  
+  float: right;
 }
 
 .App-color-picker-btn {
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
   border: 1px solid #ccc;
   margin-right: 10px;
+  position: relative;
+}
+
+.App-color-picker-btn.active:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  opacity: 0.8;
 }

@@ -21,7 +21,6 @@ header > section {
 }
 
 .App-header-btn {
-  height: 24px;
-  width: auto;
   margin-left: 15px;
+  display: inline-block;
 }

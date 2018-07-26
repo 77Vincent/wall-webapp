@@ -1,16 +1,17 @@
 .App-posts {
   position: relative;
   padding: 18px;
-  -webkit-column-count: 9;
+  -webkit-column-count: 10;
   -webkit-column-gap: 10px;
   -webkit-column-fill: auto;
-  -moz-column-count: 9;
+  -moz-column-count: 10;
   -moz-column-gap: 10px;
   -moz-column-fill: auto;
-  column-count: 9;
+  column-count: 10;
   column-gap: 10px;
   column-fill: auto;
 }
+
 
 .App-posts section {
   -webkit-column-break-inside: avoid;
@@ -18,9 +19,9 @@
   break-inside: avoid;
   opacity: 0.9;
   padding: 5px 7px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   margin-bottom: 10px;
 }
 

@@ -13,14 +13,21 @@ import add from '../../images/add.svg'
 const types = { question, post, cancel, confirm, refresh, info, add }
 
 const Icon = (props) => {
+  const style = Object.assign({
+    opacity: props.isDisabled ? 0.4 : 1,
+  }, props.style)
+
   return (
-    <img 
-      style={props.style}
-      className={`App-Icon ${props.className}`}
-      src={types[props.type]}
-      alt="question"
-      onClick={props.onClick}
-    />
+    <div
+      style={style}
+      className={`App-icon ${props.className}`}
+    >
+      <img 
+        src={types[props.type]}
+        alt={props.type}
+        onClick={props.isDisabled ? () => {} : props.onClick}
+      />
+    </div>
   )
 }
 
@@ -28,12 +35,14 @@ Icon.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
+  isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
 }
 
 Icon.defaultProps = {
   className: '',
   style: {},
+  isDisabled: false,
   onClick: () => {},
 }
 
