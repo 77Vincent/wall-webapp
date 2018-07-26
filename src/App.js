@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Drawings, Header, Draw } from './components'
+import { Postings, Header, Post } from './components'
 import { Noise, Request } from './services'
 import './App.css'
 
@@ -11,17 +11,17 @@ const backgroundImage = Noise({
 
 class App extends Component {
   async componentDidMount() {
-    const drawings = await Request.getPost()
-    this.setState({ drawings })
+    const postings = await Request.getPost()
+    this.setState({ postings })
   }
 
   state = {
-    drawings: [],
-    isDrawing: false,
+    postings: [],
+    isPosting: false,
   }
 
   stateSetter = {
-    isDrawing: (boolean) => this.setState({ isDrawing: boolean }) 
+    isPosting: (boolean) => this.setState({ isPosting: boolean }) 
   }
 
   render() {
@@ -34,13 +34,13 @@ class App extends Component {
           stateSetter={this.stateSetter}
         />
 
-        <Draw
+        <Post
           stateSetter={this.stateSetter}
-          isDrawing={this.state.isDrawing}
+          isPosting={this.state.isPosting}
         />
 
-        <Drawings
-          drawings={this.state.drawings}
+        <Postings
+          postings={this.state.postings}
         />
         
       </div>

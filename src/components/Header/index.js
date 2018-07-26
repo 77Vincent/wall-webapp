@@ -14,7 +14,7 @@ const Header = (props) => {
           type="draw"
           className="App-header-btn"
           onClick={(e) => {
-            props.stateSetter.isDrawing(true)
+            props.stateSetter.isPosting(true)
           }}
         />
         <Icon type="question" className="App-header-btn"/>

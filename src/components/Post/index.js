@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Request } from '../../services'
 import './index.css'
 
-class Draw extends Component {
+class Post extends Component {
   constructor(props) {
     super(props)
   }
@@ -33,7 +33,7 @@ class Draw extends Component {
 
   render() {
     const style = Object.assign({
-      display: this.props.isDrawing ? 'block' : 'none',
+      display: this.props.isPosting ? 'block' : 'none',
     }, this.props.style)
 
     return (
@@ -53,20 +53,22 @@ class Draw extends Component {
         <div className="App-draw-confirmation">
           <button
             onClick={() => {
-              this.props.stateSetter.isDrawing(false)
+              this.props.stateSetter.isPosting(false)
             }}
           >
             不写了
           </button>
           <button
             onClick={async () => {
-              this.props.stateSetter.isDrawing(false)
+              this.props.stateSetter.isPosting(false)
               const { textValue, textColor } = this.state
 
-              await Request.updatePost({
+              await Request.createPost({
                 content: textValue,
                 color: textColor,
               })
+              // const postings = await Request.getPost()
+              // this.setState({ postings })
             }}
           >
             写好了
@@ -107,4 +109,4 @@ class Draw extends Component {
   }
 }
 
-export default Draw
+export default Post

@@ -1,4 +1,4 @@
-.App-drawings {
+.App-postings {
   position: relative;
   padding: 18px;
   -webkit-column-count: 7;
@@ -12,7 +12,7 @@
   column-fill: auto;
 }
 
-.App-drawings section {
+.App-postings section {
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
   column-break-inside: avoid;

@@ -5,7 +5,7 @@ const Request = {
     return data 
   },
 
-  updatePost: async (payload = {}) => {
+  createPost: async (payload = {}) => {
     const res = await fetch('/api/posts', {
       method: 'PUT',
       headers:{
