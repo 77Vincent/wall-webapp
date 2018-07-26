@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Icon, Drawings, Draw } from './components'
+import { Drawings, Header } from './components'
 import { Noise } from './services'
 import './App.css'
 
@@ -49,13 +49,12 @@ class App extends Component {
         onClick={this.toggleDrawBox}
         style={{ backgroundImage }}
       >
-        <h1 className="App-title">Great Free Wall</h1>
+        <Header />
 
         <Drawings
           drawings={this.state.drawings}
         />
         
-        <Icon type="question" className="App-button-question"/>
       </div>
     )
   }

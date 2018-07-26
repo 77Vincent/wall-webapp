@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: sans-serif, SimHei, STHeiti, 'Microsoft YaHei', 'Hiragino Sans GB';
   background-color: rgb(245, 245, 245);
 }
 
@@ -25,21 +25,4 @@ button {
   right: 15px;
   top: 15px;
   cursor: pointer;
-}
-
-.App-button-question {
-  width: 25px;
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  cursor: pointer;
-}
-
-.App-title {
-  font-size: 1.5em;
-  position: absolute;
-  left: 15px;
-  top: 15px;
-  margin: 0;
-  opacity: 0.5;
 }

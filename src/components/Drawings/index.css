@@ -1,11 +1,25 @@
 .App-drawings {
-  height: 100vh;
   position: relative;
-  transition: transform 0.2s linear;
+  padding: 18px;
+  -webkit-column-count: 7;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 7;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 7;
+  column-gap: 10px;
+  column-fill: auto;
 }
 
-.App-drawing {
-  position: absolute;
-  max-width: 300px;
+.App-drawings section {
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
   opacity: 0.9;
+  padding: 5px 7px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 5px 0;
 }
