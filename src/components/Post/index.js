@@ -13,7 +13,7 @@ class Post extends Component {
     super(props)
   }
 
-  colors = [ '#E9967A', '#B22222', '#C71585', '#9370DB', '#4682B4', '#1E90FF', '#20B2AA', '#8FBC8B' ] 
+  colors = ['#000000', '#E9967A', '#B22222', '#C71585', '#9370DB', '#4682B4', '#1E90FF', '#20B2AA', '#8FBC8B'] 
 
   static propTypes = {
     className: PropTypes.string,
@@ -29,7 +29,7 @@ class Post extends Component {
 
   state = {
     textValue: '',
-    textColor: '',
+    textColor: '#000000',
     textSize: null,
     textWeight: 500,
   }
@@ -49,10 +49,10 @@ class Post extends Component {
       >
         <section>
           <textarea
-            rows="3"
             autoFocus
             placeholder=""
             maxLength={55}
+            placeholder="Say something"
             style={{
               color: textColor,
               fontSize: textSize,

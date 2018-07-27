@@ -37,6 +37,9 @@ class SliderPicker extends Component {
           step={null}
           onChange={this.props.onChange}
           defaultValue={this.props.default}
+          dotStyle={{ borderColor: '#777' }}
+          handleStyle={{ borderColor: '#2FAE91' }}
+          trackStyle={{ backgroundColor: '#777' }}
         />
       </div>
     )
