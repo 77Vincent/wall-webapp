@@ -6,7 +6,8 @@ import { Request } from '../../services'
 import './index.css'
 
 const textSizeMap = { 0: 10, 25: 13, 50: 16, 75: 20, 100: 24 }
-const textWeightMap = { 0: 300, 50: 500, 100: 900 }
+const textWeightMap = { 0: 300, 100: 700 }
+const textOpacityMap = { 0: 0.5, 50: 0.75, 100: 1 }
 
 class Post extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Post extends Component {
       zIndex: this.props.isPosting ? '1' : '-1',
     }, this.props.style)
 
-    const { textValue, textColor, textSize, textWeight } = this.state
+    const { textValue, textColor, textSize, textWeight, textOpacity } = this.state
 
     return (
       <div
@@ -56,7 +57,8 @@ class Post extends Component {
             style={{
               color: textColor,
               fontSize: textSize,
-              fontWeight: textWeight
+              fontWeight: textWeight,
+              opacity: textOpacity,
             }}
             onChange={(e) => {
               this.setState({ textValue: e.target.value })
@@ -75,6 +77,7 @@ class Post extends Component {
                   color: textColor,
                   fontSize: textSize,
                   fontWeight: textWeight,
+                  opacity: textOpacity,
                 })
 
                 const posts = await Request.getPost()
@@ -109,7 +112,8 @@ class Post extends Component {
               }
             </div>
 
-            <div className="App-size-picker App-style-picker">
+            <div className="App-style-picker">
+              <h4>Size</h4>
               <SliderPicker
                 marks={{ 0: 'XS', 25: 'S', 50: 'M', 75: 'L', 100: 'XL' }}
                 onChange={(e) => {
@@ -118,16 +122,24 @@ class Post extends Component {
               />
             </div>
 
-            <div className="App-weight-picker App-style-picker">
+            <div className="App-style-picker">
+              <h4>Weight</h4>
               <SliderPicker
-                marks={{ 0: 'Light', 50: 'Medium', 100: 'Bold' }}
+                marks={{ 0: 'Light', 100: 'Bold' }}
                 onChange={(e) => {
                   this.setState({ textWeight: textWeightMap[e] })
                 }}
               />
             </div>
 
-            <div className="App-opacity-picker">
+            <div className="App-style-picker">
+              <h4>Opacity</h4>
+              <SliderPicker
+                marks={{ 0: '0.5', 50: '0.75', 100: '1' }}
+                onChange={(e) => {
+                  this.setState({ textOpacity: textOpacityMap[e] })
+                }}
+              />
             </div>
 
             <div className="App-style-picker">

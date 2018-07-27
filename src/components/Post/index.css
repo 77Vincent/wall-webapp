@@ -3,11 +3,11 @@
   bottom: 30px;
   left: 50%;
   margin-left: -150px;
-  width: 310px;
+  width: 320px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 20px 0 #aaa;
-  padding: 15px;
+  padding: 20px;
   -webkit-transition: 0.2s linear;
   -moz-transition: 0.2s linear;
   -o-transition: 0.2s linear;
@@ -70,6 +70,9 @@
 }
 
 .App-style-picker {
-  margin: 10px 0 20px;
-  width: 240px;
+  margin: 10px 0 30px;
+}
+
+.App-style-picker h4 {
+  margin: 5px 0;
 }

@@ -30,6 +30,7 @@ class Posts extends Component {
                   fontStyle: each.isItalic ? 'italic' : 'normal',
                   fontWeight: each.fontWeight,
                   color: `${each.color}`,
+                  opacity: each.opacity,
                 }}
               >
                 {each.content}

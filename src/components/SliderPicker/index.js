@@ -29,7 +29,7 @@ class SliderPicker extends Component {
     return (
       <div
         style={this.props.style}
-        className={this.props.className}
+        className={`App-slider-picker ${this.props.className}`}
       >
         <Slider
           min={0}
