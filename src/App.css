@@ -22,3 +22,7 @@ img {
 button {
   cursor: pointer;
 }
+
+textarea {
+  font-family: sans-serif, SimHei, STHeiti, 'Microsoft YaHei', 'Hiragino Sans GB';
+}

@@ -25,6 +25,7 @@
 }
 
 .App-post textarea {
+  resize: none;
   background-color: #fff;
   padding: 5px;
   border: 1px solid #ddd;
@@ -63,4 +64,8 @@
   left: 50%;
   top: 50%;
   opacity: 0.8;
+}
+
+.App-style-picker {
+  margin: 10px 0 20px;
 }
