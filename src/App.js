@@ -15,6 +15,13 @@ class App extends Component {
     const posts = await Request.getPost()
     this.setState({ posts })
     this.setState({ isLoading: false })
+
+    document.getElementsByTagName('body')[0].addEventListener('click', (e) => {
+      if (!excludedArea.contains(e.target)) {
+        this.setState({ isPosting: false })
+      }
+    })
+    const excludedArea = document.getElementsByClassName('App-post')[0]
   }
 
   state = {
