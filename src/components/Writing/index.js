@@ -10,7 +10,7 @@ const textSizeMap = { 0: 12, 33: 15, 66: 18, 100: 21 }
 const textWeightMap = { 0: 300, 100: 900 }
 const textOpacityMap = { 0: 0.5, 50: 0.75, 100: 1 }
 
-class Post extends Component {
+class Writing extends Component {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
@@ -43,7 +43,7 @@ class Post extends Component {
     return (
       <div
         style={style}
-        className={`App-post ${this.props.className}`}
+        className={`App-writing ${this.props.className}`}
       >
         <Loading
           isLoading={this.state.isLoading}
@@ -65,7 +65,7 @@ class Post extends Component {
             }}
           />
 
-          <div className="App-post-confirmation">
+          <div className="App-writing-confirmation">
             <Icon
               type="confirm"
               isDisabled={!textValue.length}
@@ -97,7 +97,7 @@ class Post extends Component {
           </div>
         </section>
 
-        <div className="App-post-tools">
+        <div className="App-writing-tools">
             <div className="App-color-picker">
               {
                 this.state.colors.map(each => {
@@ -171,4 +171,4 @@ class Post extends Component {
   }
 }
 
-export default Post
+export default Writing

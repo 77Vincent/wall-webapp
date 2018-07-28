@@ -1,4 +1,4 @@
-.App-post {
+.App-writing {
   position: fixed;
   bottom: 30px;
   left: 50%;
@@ -14,19 +14,19 @@
   transition: 0.2s linear;
 }
 
-.App-post section {
+.App-writing section {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }
 
-.App-post .App-icon {
+.App-writing .App-icon {
   margin-bottom: 10px;
   width: 27px;
   height: 27px;
 }
 
-.App-post textarea {
+.App-writing textarea {
   resize: none;
   background-color: #fff;
   padding: 5px;
@@ -45,7 +45,7 @@
   height: 20px;
 }
 
-.App-post-confirmation {
+.App-writing-confirmation {
   float: right;
 }
 

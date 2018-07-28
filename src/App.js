@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Posts, Header, Post, Loading, Info } from './components'
+import { Posts, Header, Writing, Loading, Info } from './components'
 import { Noise, Request } from './services'
 import './App.css'
 
@@ -22,7 +22,7 @@ class App extends Component {
       }
       this.setState({ isInfoShown: false })
     })
-    const excludedArea = document.getElementsByClassName('App-post')[0]
+    const excludedArea = document.getElementsByClassName('App-writing')[0]
   }
 
   state = {
@@ -55,7 +55,7 @@ class App extends Component {
           stateSetter={this.stateSetter}
         />
 
-        <Post
+        <Writing
           stateSetter={this.stateSetter}
           isPosting={this.state.isPosting}
         />

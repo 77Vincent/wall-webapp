@@ -49,11 +49,13 @@ class Posts extends Component {
                       this.props.stateSetter.posts(posts)
                     }} />
                     <span>{each.like}</span>
+
                     <Icon type="dislike" size="22" onClick={async () => {
                       await Request.updatePost(each._id, { dislike: each.dislike + 1 })
                       const posts = await Request.getPost()
                       this.props.stateSetter.posts(posts)
                     }} />
+
                     <span>{each.dislike}</span>
                   </div>
                 </div>
