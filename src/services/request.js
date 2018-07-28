@@ -16,6 +16,18 @@ const Request = {
     const data = await res.json()
     return data
   },
+
+  updatePost: async (id, payload = {}) => {
+    const res = await fetch(`/api/posts/${id}`, {
+      method: 'post',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    const data = await res.json()
+    return data
+  },
 }
 
 export default Request

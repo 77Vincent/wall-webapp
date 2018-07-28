@@ -4,7 +4,7 @@ var noise = (options) => {
   }
 
   // Options
-  var options = options ? options : {}
+  options = options ? options : {}
   var opacity = options.opacity ? options.opacity : 1 
   var bright = options.bright ? options.bright : 255
   var width = options.width ? options.width : 500

@@ -47,6 +47,7 @@ class App extends Component {
         />
 
         <Posts
+          stateSetter={this.stateSetter}
           posts={this.state.posts}
         />
         

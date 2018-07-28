@@ -72,7 +72,7 @@ class Post extends Component {
               onClick={async () => {
                 this.setState({ isLoading: true })
 
-                const res = await Request.createPost({
+                await Request.createPost({
                   content: textValue,
                   color: textColor,
                   fontSize: textSize,

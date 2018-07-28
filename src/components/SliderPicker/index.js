@@ -5,10 +5,6 @@ import 'rc-slider/assets/index.css'
 
 
 class SliderPicker extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
