@@ -6,6 +6,8 @@ import { Request } from '../../services'
 
 import './index.css'
 
+const delayIncrement = 50
+
 class Post extends Component {
   static propTypes = {
     stateSetter: PropTypes.object,
@@ -20,6 +22,7 @@ class Post extends Component {
   }
 
   state = {
+    delay: 0,
     isDisabled: false,
     like: this.props.post.like,
     dislike: this.props.post.dislike,
@@ -53,8 +56,11 @@ class Post extends Component {
                 await Request.updatePost(post._id, { like: value })
                 this.setState({ like: value })
                 setTimeout(() => {
-                  this.setState({ isDisabled: false })
-                }, 300);
+                  this.setState({
+                    isDisabled: false,
+                    delay: this.state.delay + delayIncrement,
+                  })
+                }, this.state.delay);
               }} />
             <span>{this.state.like}</span>
 
@@ -68,8 +74,11 @@ class Post extends Component {
                 await Request.updatePost(post._id, { dislike: value })
                 this.setState({ dislike: value })
                 setTimeout(() => {
-                  this.setState({ isDisabled: false })
-                }, 300);
+                  this.setState({
+                    isDisabled: false,
+                    delay: this.state.delay + delayIncrement,
+                  })
+                }, this.state.delay);
               }} />
 
             <span>{this.state.dislike}</span>
