@@ -20,7 +20,7 @@ const Info = (props) => {
       <li>There is no register, all posts are truely anonymous.</li>
       <li>Hover on a post then you can like it or dislike it.</li>
       <li>The more dislike a post gets, the lower position it will be placed.</li>
-      <li>No authority, no censorship, values are built by publics.</li>
+      <li>No authority, no censorship, values are determined by publics.</li>
      </ul>
     </div>
   )

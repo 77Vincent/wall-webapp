@@ -22,7 +22,7 @@ const Header = (props) => {
         <Icon
           type="refresh"
           className="App-header-btn"
-          title="Refresh"
+          title="Shuffle"
           onClick={(e) => {
           }}
         />
