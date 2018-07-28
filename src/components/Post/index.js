@@ -115,11 +115,7 @@ class Post extends Component {
               }
               <Icon
                 className="App-color-refresh"
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  display: 'inline-block',
-                }}
+                size="24"
                 type="refresh"
                 onClick={() => {
                   const newColors = []

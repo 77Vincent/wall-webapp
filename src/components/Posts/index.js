@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Icon } from '../'
 
 import './index.css'
 
@@ -22,17 +23,29 @@ class Posts extends Component {
         {
           this.props.posts.map(each => {
             return (
-              <section
+              <div className="App-posts-block"
                 key={each._id}
-                style={{
-                  fontSize: `${each.fontSize}px`,
-                  fontWeight: each.fontWeight,
-                  color: `${each.color}`,
-                  opacity: each.opacity,
-                }}
               >
-                {each.content}
-              </section>
+                <div
+                  style={{
+                    fontSize: `${each.fontSize}px`,
+                    fontWeight: each.fontWeight,
+                    color: `${each.color}`,
+                    opacity: each.opacity,
+                  }}
+                >
+                  {each.content}
+                </div>
+
+                <div className="App-posts-block-hover">
+                  <div className="App-posts-block-hover-wrap">
+                    <Icon type="like" size="22" />
+                    <span>{each.like ? each.like : 0}</span>
+                    <Icon type="dislike" size="22" />
+                    <span>{each.dislike ? each.dislike : 0}</span>
+                  </div>
+                </div>
+              </div>
             )
           })
         }

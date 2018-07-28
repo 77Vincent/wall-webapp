@@ -9,12 +9,24 @@ import confirm from '../../images/confirm.svg'
 import refresh from '../../images/refresh.svg'
 import info from '../../images/info.svg'
 import add from '../../images/add.svg'
+import like from '../../images/like.svg'
+import dislike from '../../images/dislike.svg'
 
-const types = { question, post, cancel, confirm, refresh, info, add }
+const types = { question, post, cancel, confirm, refresh, info, add, like, dislike }
 
 const Icon = (props) => {
+  props = Object.assign({
+    className: '',
+    style: {},
+    isDisabled: false,
+    onClick: () => {},
+    size: 27,
+  }, props)
+
   const style = Object.assign({
     opacity: props.isDisabled ? 0.4 : 1,
+    width: `${props.size}px`,
+    height: `${props.size}px`,
   }, props.style)
 
   return (
@@ -37,13 +49,7 @@ Icon.propTypes = {
   style: PropTypes.object,
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
-}
-
-Icon.defaultProps = {
-  className: '',
-  style: {},
-  isDisabled: false,
-  onClick: () => {},
+  size: PropTypes.number,
 }
 
 export default Icon
