@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import randomcolor from 'randomcolor'
+import uuidv4 from 'uuid/v4'
 
 import { Icon, SliderPicker, Loading } from '../../components'
 import { Request } from '../../services'
@@ -15,6 +16,7 @@ class Writing extends Component {
     className: PropTypes.string,
     style: PropTypes.object,
     stateSetter: PropTypes.object,
+    posts: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -34,8 +36,8 @@ class Writing extends Component {
 
   render() {
     const style = Object.assign({
-      opacity: this.props.isPosting ? '1' : '0',
-      zIndex: this.props.isPosting ? '1' : '-1',
+      opacity: this.props.isWriting ? '1' : '0',
+      zIndex: this.props.isWriting ? '1' : '-1',
     }, this.props.style)
 
     const { textValue, textColor, textSize, textWeight, textOpacity } = this.state
@@ -72,26 +74,27 @@ class Writing extends Component {
               onClick={async () => {
                 this.setState({ isLoading: true })
 
-                await Request.createPost({
+                const paylaod = {
+                  _id: uuidv4(),
                   content: textValue,
                   color: textColor,
                   fontSize: textSize,
                   fontWeight: textWeight,
                   opacity: textOpacity,
-                })
+                }
 
-                const posts = await Request.getPost()
-                this.props.stateSetter.posts(posts)
+                await Request.createPost(paylaod)
 
                 this.setState({ isLoading: false })
-                this.props.stateSetter.isPosting(false)
+                this.props.stateSetter.isWriting(false)
+                this.props.stateSetter.posts(this.props.posts.concat([paylaod]))
               }}
             />
 
             <Icon
               type="cancel"
               onClick={() => {
-                this.props.stateSetter.isPosting(false)
+                this.props.stateSetter.isWriting(false)
               }}
             />
           </div>

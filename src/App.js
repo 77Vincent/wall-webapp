@@ -18,7 +18,7 @@ class App extends Component {
 
     document.getElementsByTagName('body')[0].addEventListener('click', (e) => {
       if (!excludedArea.contains(e.target)) {
-        this.setState({ isPosting: false })
+        this.setState({ isWriting: false })
       }
       this.setState({ isInfoShown: false })
     })
@@ -28,14 +28,14 @@ class App extends Component {
   state = {
     posts: [],
     isLoading: false,
-    isPosting: false,
+    isWriting: false,
     isInfoShown: false,
   }
 
   stateSetter = {
     posts: (payload = []) => this.setState({ posts: payload }),
-    isLoading: (boolean = true) => this.setState({ isPosting: boolean }),
-    isPosting: (boolean = true) => this.setState({ isPosting: boolean }),
+    isLoading: (boolean = true) => this.setState({ isWriting: boolean }),
+    isWriting: (boolean = true) => this.setState({ isWriting: boolean }),
     isInfoShown: (boolean = true) => this.setState({ isInfoShown: boolean }),
   }
 
@@ -56,8 +56,9 @@ class App extends Component {
         />
 
         <Writing
+          posts={this.state.posts}
           stateSetter={this.stateSetter}
-          isPosting={this.state.isPosting}
+          isWriting={this.state.isWriting}
         />
 
         <Posts

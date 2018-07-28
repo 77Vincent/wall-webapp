@@ -16,7 +16,7 @@ const Header = (props) => {
           className="App-header-btn"
           title="Write"
           onClick={() => {
-            props.stateSetter.isPosting(true)
+            props.stateSetter.isWriting(true)
           }}
         />
 
