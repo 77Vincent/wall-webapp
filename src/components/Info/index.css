@@ -1,0 +1,14 @@
+.App-info {
+  position: absolute;
+  z-index: 9;
+  width: 500px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -150px;
+  box-shadow: 0 0 20px 0 #bbb;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}

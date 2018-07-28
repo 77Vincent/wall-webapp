@@ -25,7 +25,13 @@ const Header = (props) => {
           }}
         />
 
-        <Icon type="info" className="App-header-btn"/>
+        <Icon
+          type="info"
+          className="App-header-btn"
+          onClick={(e) => {
+            props.stateSetter.isInfoShown(true)
+          }}
+        />
       </section>
     </header>
   )

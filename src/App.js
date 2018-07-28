@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Posts, Header, Post, Loading } from './components'
+import { Posts, Header, Post, Loading, Info } from './components'
 import { Noise, Request } from './services'
 import './App.css'
 
@@ -20,6 +20,7 @@ class App extends Component {
       if (!excludedArea.contains(e.target)) {
         this.setState({ isPosting: false })
       }
+      this.setState({ isInfoShown: false })
     })
     const excludedArea = document.getElementsByClassName('App-post')[0]
   }
@@ -28,12 +29,14 @@ class App extends Component {
     posts: [],
     isLoading: false,
     isPosting: false,
+    isInfoShown: false,
   }
 
   stateSetter = {
     posts: (payload = []) => this.setState({ posts: payload }),
     isLoading: (boolean = true) => this.setState({ isPosting: boolean }),
     isPosting: (boolean = true) => this.setState({ isPosting: boolean }),
+    isInfoShown: (boolean = true) => this.setState({ isInfoShown: boolean }),
   }
 
   render() {
@@ -43,6 +46,10 @@ class App extends Component {
         style={{ backgroundImage }}
       >
         <Loading isLoading={this.state.isLoading} />
+
+        <Info
+          isShown={this.state.isInfoShown}
+        />
 
         <Header
           stateSetter={this.stateSetter}

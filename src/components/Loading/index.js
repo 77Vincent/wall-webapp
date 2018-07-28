@@ -5,6 +5,12 @@ import ReactLoading from 'react-loading'
 import './index.css'
 
 const Loading = (props) => {
+  props = Object.assign({
+    className: '',
+    style: {},
+    isLoading: false,
+  }, props)
+
   return (
     <div
       className={`App-loading ${props.className}`}
@@ -22,12 +28,6 @@ Loading.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   isLoading: PropTypes.bool,
-}
-
-Loading.defaultProps = {
-  className: '',
-  style: {},
-  isLoading: false,
 }
 
 export default Loading
