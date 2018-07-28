@@ -19,6 +19,12 @@ class Post extends Component {
     stateSetter: {},
   }
 
+  state = {
+    isDisabled: false,
+    like: this.props.post.like,
+    dislike: this.props.post.dislike,
+  }
+
   render() {
     const { post } = this.props
 
@@ -37,20 +43,36 @@ class Post extends Component {
 
         <div className="App-post-hover">
           <div className="App-post-hover-wrap">
-            <Icon type="like" size="22" onClick={async () => {
-              await Request.updatePost(post._id, { like: post.like + 1 })
-              const posts = await Request.getPost()
-              this.props.stateSetter.posts(posts)
-            }} />
-            <span>{post.like}</span>
+            <Icon
+              type="like"
+              size="22"
+              isDisabled={this.state.isDisabled}
+              onClick={async () => {
+                this.setState({ isDisabled: true })
+                const value = this.state.like + 1
+                await Request.updatePost(post._id, { like: value })
+                this.setState({ like: value })
+                setTimeout(() => {
+                  this.setState({ isDisabled: false })
+                }, 300);
+              }} />
+            <span>{this.state.like}</span>
 
-            <Icon type="dislike" size="22" onClick={async () => {
-              await Request.updatePost(post._id, { dislike: post.dislike + 1 })
-              const posts = await Request.getPost()
-              this.props.stateSetter.posts(posts)
-            }} />
+            <Icon
+              type="dislike"
+              size="22"
+              isDisabled={this.state.isDisabled}
+              onClick={async () => {
+                this.setState({ isDisabled: true })
+                const value = this.state.dislike + 1
+                await Request.updatePost(post._id, { dislike: value })
+                this.setState({ dislike: value })
+                setTimeout(() => {
+                  this.setState({ isDisabled: false })
+                }, 300);
+              }} />
 
-            <span>{post.dislike}</span>
+            <span>{this.state.dislike}</span>
           </div>
         </div>
       </div>
