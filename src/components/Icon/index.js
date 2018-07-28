@@ -24,7 +24,7 @@ const Icon = (props) => {
   }, props)
 
   const style = Object.assign({
-    opacity: props.isDisabled ? 0.4 : 1,
+    opacity: props.isDisabled ? 0.3 : 1,
     width: `${props.size}px`,
     height: `${props.size}px`,
   }, props.style)
@@ -39,6 +39,14 @@ const Icon = (props) => {
         alt={props.type}
         onClick={props.isDisabled ? () => {} : props.onClick}
       />
+      <div
+        className="App-icon-title"
+        style={{
+          padding: props.title ? '3px 7px' : '0'
+        }}
+      >
+        {props.title}
+      </div>
     </div>
   )
 }
@@ -50,6 +58,7 @@ Icon.propTypes = {
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.number,
+  title: PropTypes.string,
 }
 
 export default Icon

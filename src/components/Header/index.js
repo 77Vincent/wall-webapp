@@ -13,6 +13,7 @@ const Header = (props) => {
         <Icon
           type="add"
           className="App-header-btn"
+          title="Write"
           onClick={() => {
             props.stateSetter.isPosting(true)
           }}
@@ -21,6 +22,7 @@ const Header = (props) => {
         <Icon
           type="refresh"
           className="App-header-btn"
+          title="Refresh"
           onClick={(e) => {
           }}
         />
@@ -28,6 +30,7 @@ const Header = (props) => {
         <Icon
           type="info"
           className="App-header-btn"
+          title="About"
           onClick={(e) => {
             props.stateSetter.isInfoShown(true)
           }}

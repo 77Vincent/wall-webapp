@@ -1,4 +1,5 @@
 .App-icon {
+  position: relative;
   cursor: pointer;
   width: 27px;
   height: 27px;
@@ -7,6 +8,21 @@
   transition: 0.3s transform ease;
 }
 
+.App-icon-title {
+  position: absolute;
+  max-width: 100px;
+  background-color: rgba(30, 30, 30, 0.5);
+  color: #fff;
+  left: 0;
+  border-radius: 3px;
+  display: none;
+  font-size: 12px; 
+}
+
 .App-icon:hover {
   padding: 0px;
+}
+
+.App-icon:hover .App-icon-title {
+  display: block;
 }

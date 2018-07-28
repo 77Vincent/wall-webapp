@@ -9,6 +9,13 @@
   margin-top: -150px;
   box-shadow: 0 0 20px 0 #bbb;
   background-color: #fff;
-  text-align: center;
   border-radius: 5px;
+}
+
+.App-info h2 {
+  text-align: center;
+}
+
+.App-info li {
+  font-size: 18px;
 }

@@ -15,8 +15,11 @@ const Info = (props) => {
       className={`App-info ${props.className}`}
       style={{ display: props.isShown ? 'block' : 'none' }}
     >
-     <h1>Welcome to the Wall</h1>
-     <p></p>
+     <h2>Welcome to the Wall</h2>
+     <ul>
+      <li>There is no register, all posts are truely anonymous.</li>
+      <li>Like or dislike a post as you wish</li>
+     </ul>
     </div>
   )
 }
