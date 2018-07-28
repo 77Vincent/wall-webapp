@@ -3,11 +3,11 @@
   bottom: 30px;
   left: 50%;
   margin-left: -150px;
-  width: 320px;
+  width: 330px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 20px 0 #aaa;
-  padding: 20px;
+  padding: 25px;
   -webkit-transition: 0.2s linear;
   -moz-transition: 0.2s linear;
   -o-transition: 0.2s linear;
@@ -39,6 +39,12 @@
   border-bottom: 1px solid #ccc;
 }
 
+.App-color-refresh {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
 .App-post-confirmation {
   float: right;
 }
@@ -52,6 +58,7 @@
   border: 1px solid #ccc;
   margin-right: 8px;
   position: relative;
+  vertical-align: top;
 }
 
 .App-color-picker-btn.active:before {

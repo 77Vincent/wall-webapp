@@ -7,7 +7,7 @@ import { Icon } from '../'
 const Header = (props) => {
   return (
     <header>
-      <h1>Great Free Wall</h1>
+      <h1>Wall</h1>
 
       <section>
         <Icon
