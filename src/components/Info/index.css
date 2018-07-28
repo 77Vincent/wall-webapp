@@ -1,15 +1,15 @@
 .App-info {
   position: absolute;
   z-index: 9;
-  width: 500px;
-  height: 300px;
+  width: 600px;
   left: 50%;
   top: 50%;
-  margin-left: -250px;
+  margin-left: -300px;
   margin-top: -150px;
   box-shadow: 0 0 20px 0 #bbb;
   background-color: #fff;
   border-radius: 5px;
+  padding: 20px 30px;
 }
 
 .App-info h2 {
@@ -17,5 +17,8 @@
 }
 
 .App-info li {
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 5px 0;
+  font-weight: 300;
 }
