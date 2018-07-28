@@ -10,15 +10,7 @@ const textSizeMap = { 0: 12, 33: 15, 66: 18, 100: 21 }
 const textWeightMap = { 0: 300, 100: 900 }
 const textOpacityMap = { 0: 0.5, 50: 0.75, 100: 1 }
 
-const colorGenerator = () => {
-
-}
-
 class Post extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
@@ -55,7 +47,6 @@ class Post extends Component {
         <section>
           <textarea
             autoFocus
-            placeholder=""
             maxLength={55}
             placeholder="Say something"
             style={{
@@ -127,7 +118,6 @@ class Post extends Component {
                   for (let i = 0; i < 8; i += 1) {
                     newColors.push(randomcolor())
                   }
-                  console.log(newColors)
                   this.setState({
                     colors: ['#000000']
                       .concat(newColors)

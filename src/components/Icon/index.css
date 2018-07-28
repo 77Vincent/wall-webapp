@@ -1,10 +1,12 @@
 .App-icon {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
+  padding: 2px;
   vertical-align: middle;
   transition: 0.3s transform ease;
 }
 
 .App-icon:hover {
+  padding: 0px;
 }

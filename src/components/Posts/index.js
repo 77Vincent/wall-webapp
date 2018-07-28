@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import uuidv4 from 'uuid/v4'
 import PropTypes from 'prop-types'
 
 import './index.css'
@@ -24,10 +23,9 @@ class Posts extends Component {
           this.props.posts.map(each => {
             return (
               <section
-                key={uuidv4()}
+                key={each._id}
                 style={{
                   fontSize: `${each.fontSize}px`,
-                  fontStyle: each.isItalic ? 'italic' : 'normal',
                   fontWeight: each.fontWeight,
                   color: `${each.color}`,
                   opacity: each.opacity,
