@@ -1,6 +1,9 @@
+import querystring from 'query-string'
+
 const Request = {
-  getPost: async () => {
-    const res = await fetch('/api/posts')
+  getPost: async (queryObject) => {
+    const query = querystring.stringify(queryObject) 
+    const res = await fetch(`/api/posts?${query}`)
     const data = await res.json()
     return data 
   },

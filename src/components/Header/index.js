@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import './index.css'
 import { Icon } from '../'
+import { Request } from '../../services'
 
 const Header = (props) => {
   return (
@@ -23,7 +24,9 @@ const Header = (props) => {
           type="refresh"
           className="App-header-btn"
           title="Shuffle"
-          onClick={(e) => {
+          onClick={async (e) => {
+            const posts = await Request.getPost({ isShuffle: 1 })
+            props.stateSetter.posts(posts)
           }}
         />
 

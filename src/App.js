@@ -12,7 +12,7 @@ const backgroundImage = Noise({
 class App extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true })
-    const posts = await Request.getPost()
+    const posts = await Request.getPost({ isShuffle: 1 })
     this.setState({ posts })
     this.setState({ isLoading: false })
 
