@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import randomcolor from 'randomcolor'
 
-import { Icon, SliderPicker } from '../../components'
+import { Icon, SliderPicker, Loading } from '../../components'
 import { Request } from '../../services'
 import './index.css'
 
@@ -24,6 +24,7 @@ class Post extends Component {
   }
 
   state = {
+    isLoading: false,
     textValue: '',
     textColor: '#000000',
     textSize: textSizeMap[33],
@@ -44,6 +45,10 @@ class Post extends Component {
         style={style}
         className={`App-post ${this.props.className}`}
       >
+        <Loading
+          isLoading={this.state.isLoading}
+        />
+
         <section>
           <textarea
             autoFocus
@@ -65,7 +70,7 @@ class Post extends Component {
               type="confirm"
               isDisabled={!textValue.length}
               onClick={async () => {
-                this.props.stateSetter.isPosting(false)
+                this.setState({ isLoading: true })
 
                 const res = await Request.createPost({
                   content: textValue,
@@ -77,6 +82,9 @@ class Post extends Component {
 
                 const posts = await Request.getPost()
                 this.props.stateSetter.posts(posts)
+
+                this.setState({ isLoading: false })
+                this.props.stateSetter.isPosting(false)
               }}
             />
 
