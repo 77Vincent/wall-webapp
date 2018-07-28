@@ -1,0 +1,49 @@
+.App-post {
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  opacity: 0.9;
+  padding: 6px 7px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 1.25;
+}
+
+.App-post:hover .App-post-hover {
+  opacity: 1;
+  z-index: 1;
+}
+
+.App-post-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  z-index: -1;
+  text-align: center;
+}
+
+.App-post-hover .App-post-hover-wrap {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.App-post-hover span {
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 12px;
+}
+
+.App-post-hover .App-icon {
+  vertical-align: middle;
+  display: inline-block;
+}
