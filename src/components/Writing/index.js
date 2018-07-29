@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import randomcolor from 'randomcolor'
-import uuidv4 from 'uuid/v4'
 
 import { Icon, SliderPicker, Loading } from '../../components'
 import { Request } from '../../services'
@@ -74,8 +73,7 @@ class Writing extends Component {
               onClick={async () => {
                 this.setState({ isLoading: true })
 
-                const paylaod = {
-                  _id: uuidv4(),
+                const payload = {
                   content: textValue,
                   color: textColor,
                   fontSize: textSize,
@@ -83,9 +81,9 @@ class Writing extends Component {
                   opacity: textOpacity,
                 }
 
-                const res = await Request.createPost(paylaod)
-                if (res) {
-                  this.props.stateSetter.posts(this.props.posts.concat([paylaod]))
+                const data = await Request.createPost(payload)
+                if (data) {
+                  this.props.stateSetter.posts(this.props.posts.concat([data]))
                 }
 
                 this.setState({ isLoading: false })

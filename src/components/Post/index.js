@@ -85,7 +85,8 @@ class Post extends Component {
                     })
                   }, this.state.delay);
                 }
-              }} />
+              }}
+            />
 
             <span>{this.state.dislike}</span>
           </div>

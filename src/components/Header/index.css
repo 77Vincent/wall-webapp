@@ -25,3 +25,9 @@ header > section {
   margin-left: 15px;
   display: inline-block;
 }
+
+@media (max-width: 770px) {
+  header h1 {
+    text-align: left;
+  }
+}

@@ -24,7 +24,7 @@ const Request = {
       const data = await res.json()
       return data
     } else {
-      return false
+      return null 
     }
   },
 
@@ -40,7 +40,7 @@ const Request = {
       const data = await res.json()
       return data
     } else {
-      return false
+      return null 
     }
   },
 }

@@ -30,3 +30,25 @@
     column-gap: 7px;
   }
 }
+
+@media (max-width: 770px) {
+  .App-posts {
+    -webkit-column-count: 3;
+    -webkit-column-gap: 5px;
+    -moz-column-count: 3;
+    -moz-column-gap: 5px;
+    column-count: 3;
+    column-gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-posts {
+    -webkit-column-count: 2;
+    -webkit-column-gap: 5px;
+    -moz-column-count: 2;
+    -moz-column-gap: 5px;
+    column-count: 2;
+    column-gap: 5px;
+  }
+}
