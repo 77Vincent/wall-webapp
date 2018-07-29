@@ -6,7 +6,7 @@ import { Request } from '../../services'
 
 import './index.css'
 
-const delayIncrement = 50
+const delayIncrement = 200
 
 class Post extends Component {
   static propTypes = {
@@ -22,7 +22,7 @@ class Post extends Component {
   }
 
   state = {
-    delay: 0,
+    delay: 200,
     isDisabled: false,
     like: this.props.post.like,
     dislike: this.props.post.dislike,
@@ -53,14 +53,17 @@ class Post extends Component {
               onClick={async () => {
                 this.setState({ isDisabled: true })
                 const value = this.state.like + 1
-                await Request.updatePost(post._id, { like: value })
-                this.setState({ like: value })
-                setTimeout(() => {
-                  this.setState({
-                    isDisabled: false,
-                    delay: this.state.delay + delayIncrement,
-                  })
-                }, this.state.delay);
+                const res = await Request.updatePost(post._id, { like: value })
+
+                if (res) {
+                  this.setState({ like: value })
+                  setTimeout(() => {
+                    this.setState({
+                      isDisabled: false,
+                      delay: this.state.delay + delayIncrement,
+                    })
+                  }, this.state.delay);
+                }
               }} />
             <span>{this.state.like}</span>
 
@@ -71,14 +74,17 @@ class Post extends Component {
               onClick={async () => {
                 this.setState({ isDisabled: true })
                 const value = this.state.dislike + 1
-                await Request.updatePost(post._id, { dislike: value })
-                this.setState({ dislike: value })
-                setTimeout(() => {
-                  this.setState({
-                    isDisabled: false,
-                    delay: this.state.delay + delayIncrement,
-                  })
-                }, this.state.delay);
+                const res = await Request.updatePost(post._id, { dislike: value })
+
+                if (res) {
+                  this.setState({ dislike: value })
+                  setTimeout(() => {
+                    this.setState({
+                      isDisabled: false,
+                      delay: this.state.delay + delayIncrement,
+                    })
+                  }, this.state.delay);
+                }
               }} />
 
             <span>{this.state.dislike}</span>

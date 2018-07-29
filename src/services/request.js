@@ -4,8 +4,12 @@ const Request = {
   getPost: async (queryObject) => {
     const query = querystring.stringify(queryObject) 
     const res = await fetch(`/api/posts?${query}`)
-    const data = await res.json()
-    return data 
+    if (res.status === 200) {
+      const data = await res.json()
+      return data
+    } else {
+      return []
+    }
   },
 
   createPost: async (payload = {}) => {
@@ -16,8 +20,12 @@ const Request = {
       },
       body: JSON.stringify(payload)
     })
-    const data = await res.json()
-    return data
+    if (res.status === 201) {
+      const data = await res.json()
+      return data
+    } else {
+      return false
+    }
   },
 
   updatePost: async (id, payload = {}) => {
@@ -28,8 +36,12 @@ const Request = {
       },
       body: JSON.stringify(payload)
     })
-    const data = await res.json()
-    return data
+    if (res.status === 200) {
+      const data = await res.json()
+      return data
+    } else {
+      return false
+    }
   },
 }
 

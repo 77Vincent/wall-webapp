@@ -83,11 +83,13 @@ class Writing extends Component {
                   opacity: textOpacity,
                 }
 
-                await Request.createPost(paylaod)
+                const res = await Request.createPost(paylaod)
+                if (res) {
+                  this.props.stateSetter.posts(this.props.posts.concat([paylaod]))
+                }
 
                 this.setState({ isLoading: false })
                 this.props.stateSetter.isWriting(false)
-                this.props.stateSetter.posts(this.props.posts.concat([paylaod]))
               }}
             />
 
