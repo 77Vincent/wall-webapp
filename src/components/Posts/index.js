@@ -1,43 +1,43 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon, Post } from '../'
-import { Request } from '../../services'
+import { Post } from '../'
 
 import './index.css'
 
-class Posts extends Component {
-  static propTypes = {
-    posts: PropTypes.array,
-    className: PropTypes.string,
-    stateSetter: PropTypes.object,
-  }
-
-  static defaultProps = {
+const Posts = (props) => {
+  props = Object.assign({
+    isShown: true,
     posts: [],
-    className: '',
-    stateSetter: {},
-  }
+  }, props)
 
-  render() {
-    return (
-      <div 
-        className={`App-posts ${this.props.className}`}
-      >
-        {
-          this.props.posts.map(each => {
-            return (
-              <Post
-                stateSetter={this.props.stateSetter}
-                post={each}
-                key={each._id}
-              />
-            )
-          })
-        }
-      </div>
-    )
-  }
+  return (
+    <div 
+      className={`App-posts ${props.className}`}
+      style={{
+        display: props.isShown ? 'block' : 'none'
+      }}
+    >
+      {
+        props.posts.map(each => {
+          return (
+            <Post
+              stateSetter={props.stateSetter}
+              post={each}
+              key={each._id}
+            />
+          )
+        })
+      }
+    </div>
+  )
+}
+
+Posts.propTypes = {
+  posts: PropTypes.array,
+  className: PropTypes.string,
+  stateSetter: PropTypes.object,
+  isShown: PropTypes.bool,
 }
 
 export default Posts

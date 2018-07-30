@@ -2,7 +2,14 @@ header {
   padding: 10px 30px;
   position: relative;
   background-color: #fff;
-  box-shadow: 0 5px 15px 0 #bbb;
+  box-shadow: 0 5px 15px 0px #bbb;
+  text-align: center;
+  background-size: 10%;
+}
+
+.App-logo {
+  display: inline-block;
+  width: 100px; 
 }
 
 header h1 {

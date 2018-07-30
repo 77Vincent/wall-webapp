@@ -16,12 +16,11 @@ const Info = (props) => {
       style={{ display: props.isShown ? 'block' : 'none' }}
     >
      <h2>Welcome to the Wall</h2>
-     <ul>
-      <li>There is no register, all posts are truely anonymous.</li>
-      <li>Hover on a post then you can like it or dislike it.</li>
-      <li>The more dislike a post gets, the lower position it will be placed.</li>
-      <li>No authority, no censorship, values are determined by publics.</li>
-     </ul>
+
+    <p>This is a place where you can </p>
+    <p>Hover on a post then you can like it or dislike it.</p>
+    <p>The more dislike a post gets, the lower position it will be placed.</p>
+    <p>No authority, no censorship, values are determined by publics.</p>
     </div>
   )
 }

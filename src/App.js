@@ -62,6 +62,7 @@ class App extends Component {
         />
 
         <Posts
+          isShown={!this.state.isInfoShown}
           stateSetter={this.stateSetter}
           posts={this.state.posts}
         />

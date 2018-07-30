@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import './index.css'
+import logo from '../../images/logo.png'
 import { Icon } from '../'
 import { Request } from '../../services'
 
 const Header = (props) => {
   return (
     <header>
-      <h1>Wall</h1>
+      <div className="App-logo">
+        <img src={logo} />
+      </div>
 
       <section>
         <Icon
@@ -17,16 +20,6 @@ const Header = (props) => {
           title="Write"
           onClick={() => {
             props.stateSetter.isWriting(true)
-          }}
-        />
-
-        <Icon
-          type="refresh"
-          className="App-header-btn"
-          title="Shuffle"
-          onClick={async (e) => {
-            const posts = await Request.getPost({ isShuffle: 1 })
-            props.stateSetter.posts(posts)
           }}
         />
 

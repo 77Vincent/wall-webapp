@@ -1,24 +1,18 @@
 .App-info {
   position: absolute;
   z-index: 9;
-  width: 600px;
-  left: 50%;
-  top: 50%;
-  margin-left: -300px;
-  margin-top: -150px;
-  box-shadow: 0 0 20px 0 #bbb;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px 30px;
+  width: 100%;
+  left: 0;
+  top: 20%;
+  text-align: center;
+  opacity: 0.8;
 }
 
 .App-info h2 {
-  text-align: center;
+  margin-bottom: 2em;
 }
 
-.App-info li {
-  font-size: 17px;
+.App-info p {
+  font-size: 1.2em;
   line-height: 1.5;
-  padding: 5px 0;
-  font-weight: 300;
 }
