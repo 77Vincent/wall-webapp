@@ -17,10 +17,11 @@ const Info = (props) => {
     >
      <h2>Welcome to the Wall</h2>
 
-    <p>This is a place where you can </p>
-    <p>Hover on a post then you can like it or dislike it.</p>
-    <p>The more dislike a post gets, the lower position it will be placed.</p>
-    <p>No authority, no censorship, values are determined by publics.</p>
+    <p>This is a place where you can freely express</p>
+    <p>Hover on a post then you can like it or dislike it</p>
+    <p>The more dislike a post gets, the lower position it will be placed</p>
+    <p>No authority, no censorship, values are determined by publics</p>
+    <div className="App-info-continue"> Click anywhere to continue browsing </div>
     </div>
   )
 }
