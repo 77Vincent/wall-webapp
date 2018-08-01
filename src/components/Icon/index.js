@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import './index.css'
 import question from '../../images/question-mark.svg'
-import post from '../../images/draw.png'
 import cancel from '../../images/cancel.svg'
 import confirm from '../../images/confirm.svg'
 import refresh from '../../images/refresh.svg'
@@ -12,7 +11,7 @@ import add from '../../images/add.svg'
 import like from '../../images/like.svg'
 import dislike from '../../images/dislike.svg'
 
-const types = { question, post, cancel, confirm, refresh, info, add, like, dislike }
+const types = { question, cancel, confirm, refresh, info, add, like, dislike }
 
 const Icon = (props) => {
   props = Object.assign({
