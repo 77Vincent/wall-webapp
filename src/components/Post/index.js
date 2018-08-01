@@ -45,7 +45,9 @@ class Post extends Component {
         </div>
 
         <div className="App-post-hover">
+          <div className="App-post-sequence">{ post.sequence }</div>
           <div className="App-post-hover-wrap">
+
             <Icon
               type="like"
               size="22"

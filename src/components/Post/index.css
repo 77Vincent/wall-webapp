@@ -26,13 +26,25 @@
   background-color: #fff;
   opacity: 0;
   z-index: -1;
-  text-align: center;
 }
 
-.App-post-hover .App-post-hover-wrap {
+.App-post-sequence {
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
   position: absolute;
-  width: 100%;
   top: 50%;
+  left: 12px;
+  margin-top: -6px;
+  max-width: 3em;
+  opacity: 0.8;
+}
+
+.App-post-hover-wrap {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  text-align: right;
   margin-top: -10px;
 }
 
