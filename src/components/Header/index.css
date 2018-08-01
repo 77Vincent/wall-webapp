@@ -1,6 +1,8 @@
 header {
   padding: 10px 30px;
-  position: relative;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 5px 15px 0px #bbb;
   text-align: center;
@@ -9,7 +11,7 @@ header {
 
 .App-logo {
   display: inline-block;
-  width: 70px; 
+  width: 64px; 
 }
 
 header > section {

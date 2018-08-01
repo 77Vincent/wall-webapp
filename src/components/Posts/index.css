@@ -1,6 +1,7 @@
 .App-posts {
+  top: 70px;
   position: relative;
-  padding: 18px;
+  padding: 0 18px 100px;
   -webkit-column-count: 10;
   -webkit-column-gap: 10px;
   -webkit-column-fill: auto;
