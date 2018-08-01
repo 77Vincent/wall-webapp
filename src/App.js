@@ -12,18 +12,8 @@ const backgroundImage = Noise({
 class App extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true })
-    let posts = await Request.getPost({ isShuffle: 1 })
 
-    const postsHeight = document.getElementsByClassName('App-posts')[0].clientHeight
-    if (window.innerHeight > postsHeight + 100) {
-      const additionalPosts = await Request.getPost({
-        isShuffle: 1,
-        page: 2,
-      })
-      posts.push(...additionalPosts)
-    }
-
-
+    const posts = await Request.getPost({ isShuffle: 1 })
     this.setState({ posts })
     this.setState({ isLoading: false })
 
@@ -34,6 +24,10 @@ class App extends Component {
       this.setState({ isInfoShown: false })
     })
     const excludedArea = document.getElementsByClassName('App-writing')[0]
+
+    for (let i = 2; i < 4; i += 1) {
+      await this.fetchPosts(i)
+    }
   }
 
   state = {
@@ -41,6 +35,20 @@ class App extends Component {
     isLoading: false,
     isWriting: false,
     isInfoShown: false,
+  }
+
+  fetchPosts = async (page) => {
+    const postsHeight = document.getElementsByClassName('App-posts')[0].clientHeight
+
+    if (window.innerHeight > postsHeight) {
+      const additionalPosts = await Request.getPost({
+        isShuffle: 1,
+        page,
+      })
+
+      this.state.posts.push(...additionalPosts)
+      this.setState({ posts: this.state.posts })
+    }
   }
 
   stateSetter = {
