@@ -34,6 +34,7 @@
 
 @media (max-width: 770px) {
   .App-posts {
+    top: 50px;
     -webkit-column-count: 3;
     -webkit-column-gap: 5px;
     -moz-column-count: 3;

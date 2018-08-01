@@ -31,9 +31,8 @@ header > section {
     padding: 10px 15px;
   }
 
-  header h1 {
-    text-align: left;
-    font-size: 1.2em;
+  .App-logo {
+    width: 48px; 
   }
 
   header > section {
