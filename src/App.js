@@ -12,7 +12,18 @@ const backgroundImage = Noise({
 class App extends Component {
   async componentDidMount() {
     this.setState({ isLoading: true })
-    const posts = await Request.getPost({ isShuffle: 1 })
+    let posts = await Request.getPost({ isShuffle: 1 })
+
+    const postsHeight = document.getElementsByClassName('App-posts')[0].clientHeight
+    if (window.innerHeight > postsHeight + 100) {
+      const additionalPosts = await Request.getPost({
+        isShuffle: 1,
+        page: 2,
+      })
+      posts.push(...additionalPosts)
+    }
+
+
     this.setState({ posts })
     this.setState({ isLoading: false })
 

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import './index.css'
 import logo from '../../images/logo.png'
 import { Icon } from '../'
-import { Request } from '../../services'
 
 const Header = (props) => {
   return (
