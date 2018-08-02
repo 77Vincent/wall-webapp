@@ -1,5 +1,5 @@
 .App-loading::before {
-  position: absolute;
+  position: fixed;
   content: "";
   display: block;
   width: 100%;
@@ -12,7 +12,7 @@
 }
 
 .App-loading-main {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   margin-left: -15px;

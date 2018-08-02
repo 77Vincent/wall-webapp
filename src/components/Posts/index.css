@@ -34,14 +34,14 @@
 
 @media (max-width: 770px) {
   .App-posts {
-    top: 50px;
+    top: 60px;
     -webkit-column-count: 3;
     -webkit-column-gap: 5px;
     -moz-column-count: 3;
     -moz-column-gap: 5px;
     column-count: 3;
     column-gap: 5px;
-    padding: 15px;
+    padding: 0 15px 100px;
   }
 }
 
