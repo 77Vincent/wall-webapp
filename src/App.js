@@ -17,13 +17,19 @@ class App extends Component {
     this.setState({ posts })
     this.setState({ isLoading: false })
 
+    const excludedArea = document.getElementsByClassName('App-writing')[0]
     document.getElementsByTagName('body')[0].addEventListener('click', (e) => {
       if (!excludedArea.contains(e.target)) {
         this.setState({ isWriting: false })
       }
       this.setState({ isInfoShown: false })
     })
-    const excludedArea = document.getElementsByClassName('App-writing')[0]
+    document.getElementsByTagName('body')[0].addEventListener('tap', (e) => {
+      if (!excludedArea.contains(e.target)) {
+        this.setState({ isWriting: false })
+      }
+      this.setState({ isInfoShown: false })
+    })
 
     for (let i = 2; i < 4; i += 1) {
       await this.fetchPosts(i)
