@@ -21,7 +21,13 @@ const Info = (props) => {
     <p>Hover on a post then you can like it or dislike it</p>
     <p>The more dislike a post gets, the lower position it will be placed</p>
     <p>No authority, no censorship, values are determined by publics</p>
-    <div className="App-info-continue"> Click anywhere to continue browsing </div>
+
+    <div
+      className="App-info-continue"
+      onClick={() => {
+        props.stateSetter.isInfoShown(false)
+      }}
+    > Click to continue</div>
     </div>
   )
 }
@@ -30,6 +36,7 @@ Info.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   isShown: PropTypes.bool,
+  stateSetter: PropTypes.object,
 }
 
 export default Info

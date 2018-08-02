@@ -53,7 +53,7 @@ class Writing extends Component {
         <section>
           <textarea
             autoFocus
-            maxLength={55}
+            maxLength={100}
             placeholder="Say something"
             style={{
               color: textColor,

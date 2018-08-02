@@ -4,11 +4,20 @@ import PropTypes from 'prop-types'
 import './index.css'
 import logo from '../../images/logo.png'
 import { Icon } from '../'
+import { Request } from '../../services'
 
 const Header = (props) => {
   return (
     <header>
-      <div className="App-logo">
+      <div 
+        className="App-logo"
+        onClick={async () => {
+          props.stateSetter.isLoading(true)
+          const posts = await Request.getPost({ isShuffle: 1 })
+          props.stateSetter.posts(posts)
+          props.stateSetter.isLoading(false)
+        }}
+      >
         <img src={logo} />
       </div>
 

@@ -24,13 +24,6 @@ class App extends Component {
       }
       this.setState({ isInfoShown: false })
     })
-    document.getElementsByTagName('body')[0].addEventListener('tap', (e) => {
-      if (!excludedArea.contains(e.target)) {
-        this.setState({ isWriting: false })
-      }
-      this.setState({ isInfoShown: false })
-    })
-
     for (let i = 2; i < 4; i += 1) {
       await this.fetchPosts(i)
     }
@@ -59,7 +52,7 @@ class App extends Component {
 
   stateSetter = {
     posts: (payload = []) => this.setState({ posts: payload }),
-    isLoading: (boolean = true) => this.setState({ isWriting: boolean }),
+    isLoading: (boolean = true) => this.setState({ isLoading: boolean }),
     isWriting: (boolean = true) => this.setState({ isWriting: boolean }),
     isInfoShown: (boolean = true) => this.setState({ isInfoShown: boolean }),
   }
@@ -74,6 +67,7 @@ class App extends Component {
 
         <Info
           isShown={this.state.isInfoShown}
+          stateSetter={this.stateSetter}
         />
 
         <Header

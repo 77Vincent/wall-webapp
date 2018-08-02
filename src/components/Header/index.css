@@ -12,6 +12,7 @@ header {
 .App-logo {
   display: inline-block;
   width: 64px; 
+  cursor: pointer;
 }
 
 header > section {
